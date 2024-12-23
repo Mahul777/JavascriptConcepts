@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Request </title>
+</head>
+<body style="background-color: #212121; color: whitesmoke;">
+    0	UNSENT	Client has been created. open() not called yet.
+    1	OPENED	open() has been called.
+    2	HEADERS_RECEIVED	send() has been called, and headers and status are available.
+    3	LOADING	Downloading; responseText holds partial data.
+    4	DONE	The operation is complete.
+</body>
+<script>
+    const requestUrl = "https://api.github.com/users/Mahul777";
+    //creating object of XMLHttpRequest
+    const xhr= new XMLHttpRequest(); //XMLHttpRequest-> it accept and send the request for api 
+    xhr.open('GET',requestUrl); //Initialize the request
+    
+    //the status code of xhr is continuously changing so to track 
+     xhr.onreadystatechange = function(){
+        console.log(xhr.readyState);  //  2 3 4 ->these all stae of API 
+
+        if(xhr.readyState == 4)
+        {
+            const data = this.responseText;  //holding API response to data variable
+            console.log(typeof data);  //string
+
+            //so now we need to convert string to JSon 
+            const data2 = JSON.parse(this.responseText); 
+            console.log(typeof data2); //object
+            console.log( data2);
+            console.log(data2.location);  //Uttar Pradesh
+            console.log(data2.bio);  //Main focus on Web development by using MERN stack in JavaScript Language 
+            
+        }
+        
+     }
+    // console.log("here");
+    // console.log(xhr.readyState);
+    
+    xhr.send(); //calling open() method 
+    
+    
+</script>
+</html>

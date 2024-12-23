@@ -1,0 +1,47 @@
+<!-- <!DOCTYPE html>
+<html>
+  <body>
+    <p id="styleElement">Change my color and size.</p>
+    <button id="changeStyle">Change Style</button>
+
+    <script>
+      // Change the style when the button is clicked
+      document.getElementById("changeStyle").addEventListener("click", function() {
+        let paragraph = document.getElementById("styleElement");
+        paragraph.style.color = "red";
+        paragraph.style.fontSize = "24px";
+      });
+    </script>
+  </body>
+</html> -->
+
+<!-- **Event delegation** is a technique used to handle events efficiently by leveraging event propagation (bubbling). 
+ Instead of attaching event listeners to each individual element, you attach a single event listener to a common ancestor element. This technique is particularly useful for dynamically added elements or when dealing with a large number of elements -->
+
+ <!-- Example of Event Delegation -->
+
+ <!DOCTYPE html>
+<html>
+  <body>
+    <ul id="myList">
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
+
+    <script>
+      // Select the parent element (ul)
+      let list = document.getElementById("myList");
+
+      // Add a single event listener to the parent element
+      list.addEventListener("click", function(event) 
+      {
+        // Check if the clicked target is an li element
+        if (event.target.tagName === "LI") 
+        {
+          alert("Clicked on: " + event.target.textContent);
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,85 @@
+/*The code creates a simple webpage displaying days of the week. It uses
+JavaScript to manipulate styles, access elements, and log information about the
+DOM structure.
+
+Here we see parent-child relation and vice-versa so we can add/create element in doc */
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+    <title>DOM|Chai Aur Code </title> 
+    <style>
+      .bg-black {
+        background-color: #212121; /* Sets the background color to dark gray */
+        color: #fff; /* Sets the text color to white */
+      }
+    </style>
+  </head>
+  <body class="bg-black"> <!-- Applies the bg-black class to the body for styling -->
+    <div class="parent"> <!-- Parent container for the days -->
+      <div class="day">Monday</div> <!-- Day element -->
+      <div class="day">Tuesday</div> <!-- Day element -->
+      <div class="day">Wednesday</div> <!-- Day element -->
+      <div class="day">Thursday</div> <!-- Day element -->
+      <div class="day">Friday</div> <!-- Day element -->
+      <div class="day">Saturday</div> <!-- Day element -->
+    </div>
+  </body>
+  <script>
+    const parent = document.querySelector(`.parent`); // Selects the parent div containing the days
+    console.log(parent); // Logs the parent element to the console
+//     <div class="parent">
+//   <div class="day">Monday</div>
+//   <div class="day">Tuesday</div>
+//   <div class="day">Wednesday</div>
+//   <div class="day">Thursday</div>
+//   <div class="day">Friday</div>
+//   <div class="day">Saturday</div>
+// </div>
+
+
+    console.log(parent.children); // Logs the HTMLCollection of child elements (day divs) to the console
+
+    console.log(parent.children[3]); // Logs the fourth child (Thursday) to the console
+    console.log(parent.children[3].innerHTML); // Logs the inner HTML of Thursday, which is 'Thursday'
+
+    // Convert HTMLCollection to an array to apply array methods if needed
+    for (let i = 0; i < parent.children.length; i++) { // Loops through each child of the parent
+      console.log(parent.children[i].innerHTML); /* Logs the inner HTML of each day:
+                                                    Monday
+                                                    Tuesday
+                                                    Wednesday
+                                                    Thursday
+                                                    Friday
+                                                    Saturday */
+    }
+
+    // Applying styling
+    parent.children[1].style.color = "red"; // Changes the text color of Tuesday to red
+    console.log(parent.firstElementChild); // Logs the first child element (Monday) to the console
+                                          //<div class="day">Monday</div>
+
+    console.log(parent.lastElementChild); // Logs the last child element (Saturday) to the console
+                                         //<div class="day">Saturday</div>
+
+
+    // Accessing parent and sibling elements
+    const dayOne = document.querySelector(`.day`); // Selects the first day (Monday)
+    console.log(dayOne); // Logs the first day element (Monday)
+    console.log(dayOne.parentElement); // Logs the parent element (parent div) of Monday
+                                      //     <div class="parent">
+                                         //   <div class="day">Monday</div>
+                                        //   <div class="day">Tuesday</div>
+                                       //   <div class="day">Wednesday</div>
+                                      //   <div class="day">Thursday</div>
+                                     //   <div class="day">Friday</div>
+                                    //   <div class="day">Saturday</div>
+                                  // </div>
+
+    console.log(dayOne.nextElementSibling); // Logs the next sibling element (Tuesday)
+    console.log("Nodes", parent.childNodes); // Logs the total child nodes of the parent, including text nodes  //Nodes NodeList(13) [text, div.day, text, div.day, text, div.day, text, div.day, text, div.day, text, div.day, text]
+
+  </script>
+</html>
