@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<!-- This declaration defines the document type and version of HTML being used. -->
+
+<html lang="en">
+<!-- The root element of the HTML document, specifying the language as English. -->
+
+<head>
+    <meta charset="UTF-8">
+    <!-- Sets the character encoding for the document to UTF-8, allowing for a wide range of characters. -->
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Ensures proper rendering and touch zooming on mobile devices by controlling the viewport's size and scale. -->
+    
+    <title>htnml Events</title>
+    <!-- Sets the title of the webpage that appears in the browser tab. -->
+</head>
+
+<body style="background-color: #414141; color: aliceblue;">
+    <!-- Defines the body of the document with a dark background and light text color. -->
+    
+    <h2>Amazing image</h2>
+    <!-- A header element that provides a title or description for the content below. -->
+
+    <div>
+        <!-- A container element for grouping the images and the link. -->
+        
+        <ul id="images">
+            <!-- An unordered list with the ID 'images' to hold image list items. -->
+            
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <!-- List item containing an image with a specified width and an alt text describing the image. -->
+            
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <!-- Another list item with an image, this time without alt text. -->
+            
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <!-- Additional list item containing an image. -->
+            
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <!-- Another image list item. -->
+            
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <!-- Yet another image list item. -->
+            
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+            <!-- A list item containing a link to Google, styled to match the text color. -->
+        </ul>
+    </div>
+</body>
+
+<script>
+    // Below are various commented-out lines of code for reference or future use.
+
+    // document.getElementById('owl').onclick = function(){
+    //     alert("owl clicked")
+    // }
+    // This code, when uncommented, would show an alert when the owl image is clicked.
+
+    // attachEvent()
+    // jQuery - on
+    // These lines appear to be notes regarding event attachment in JavaScript.
+
+    // type, timestamp, defaultPrevented
+    // target, toElement, srcElement, currentTarget,
+    // clientX, clientY, screenX, screenY
+    // altkey, ctrlkey, shiftkey, keyCode
+    // These lines list various properties and events related to event handling.
+
+    // document.getElementById('images').addEventListener('click', function(e){
+    //     console.log("clicked inside the ul");
+    // }, false)
+    // This code, when uncommented, would log a message whenever any part of the 'images' ul is clicked.
+
+    // document.getElementById('owl').addEventListener('click', function(e){
+    //     console.log("owl clicked");
+    //     e.stopPropagation()
+    // }, false)
+    // This code, when uncommented, would log a message specifically when the owl image is clicked, and stop the event from bubbling up.
+
+    // document.getElementById('google').addEventListener('click',function(e){
+    //     e.preventDefault();
+    //     e.stopPropagation()
+    //     console.log("google clicked");
+    // }, false)
+    // This code, when uncommented, would prevent the default action of the link (navigating to Google), stop propagation, and log a message.
+
+    document.querySelector('#images').addEventListener('click', function(e){
+        // Attaches a click event listener to the 'images' ul.
+        
+        console.log(e.target.tagName);
+        // Logs the tag name of the clicked element.
+
+        if (e.target.tagName === 'IMG') {
+            // Checks if the clicked element is an image.
+            
+            console.log(e.target.id);
+            // Logs the ID of the clicked image.
+
+            let removeIt = e.target.parentNode;
+            // Gets the parent node (the <li>) of the clicked image.
+            
+            removeIt.remove();
+            // Removes the <li> element from the DOM.
+        }
+    });
+    // This script allows users to click on any image to remove it from the list.
+    
+    //removeIt.parentNode.removeChild(removeIt)
+    // This commented line is another way to remove the parent node from the DOM.
+</script>
+
+</html>

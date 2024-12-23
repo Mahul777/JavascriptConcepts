@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Sets character encoding to UTF-8 for proper text rendering -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Ensures compatibility with the latest IE rendering engine -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Responsive design settings for mobile devices -->
+    <title>Chai aur code | DOM</title>
+    <!-- Title of the webpage displayed in the browser tab -->
+  </head>
+  <body style="background-color: #212121; color: #fff">
+    <!-- Sets background color to dark gray and text color to white -->
+
+    <ul class="language">
+      <!-- Unordered list to display programming languages -->
+      <li>Javascript</li>
+      <!-- Initial list item for JavaScript -->
+    </ul>
+  </body>
+  <script>
+    function addLanguage(langName)
+     {
+      // Function to add a new language to the list
+       const li = document.createElement("li"); // Create a new list item element
+      li.innerHTML = `${langName}`; // Set the inner HTML of the list item to the language name  //adding new list item into li element
+      document.querySelector(".language").appendChild(li); // Append the new list item to the unordered list
+    }
+    addLanguage("python"); // Adds "python" to the language list
+    addLanguage("typescript"); // Adds "typescript" to the language list
+
+    //there is a problem in addLanguage we to add element we need to traverse whole tree 
+    //addLanguage -> we have created 'li' element and insert  then place in document
+
+    function addOptimizeLanguage(langName) {
+      // Another function to add a language (more optimal)
+      const li = document.createElement("li"); // Create a new list item element
+      const addtext = document.createTextNode(langName)
+      li.appendChild(addtext); // Create a text node with the language name and append it
+      //document.createTextNode(langName)-> part creates a new text node that contains the string value of langName
+      //li.appendChild() -> This method appends a child node  to the list item element li.
+      
+      document.querySelector(".language").appendChild(li); // Append the new list item to the unordered list then append to document 
+    }
+    addOptimizeLanguage("golang"); // Adds "golang" to the language list
+
+    //addOptimizeLanguage -> it is best approach because we have created 'li' element and insert textNode then place in document
+
+    // Edit the second language in the list
+    const secondLang = document.querySelector("li:nth-child(2)"); // Select the second list item (python)
+    console.log(secondLang); // Log the second language item to the console
+    // secondLang.innerHTML = "Mojo" // (Commented out) would change the inner HTML to "Mojo"
+    const newli = document.createElement("li"); // Create a new list item
+    newli.textContent = "Rust"; // Set the text content of the new list item to "Rust"
+    secondLang.replaceWith(newli); // Replace the second language item with the new one
+
+    // // Edit the first language in the list
+    const firstLang = document.querySelector("li:nth-child(1)"); // Select the first list item (JavaScript)
+    firstLang.outerHTML = "<li>TypeScript</li>"; // Replace the entire first list item with "TypeScript"
+
+    // // Remove the last language in the list
+    const lastLang = document.querySelector("li:last-child"); // Select the last list item (golang)
+    lastLang.remove(); // Remove the last list item from the DOM
+  </script>
+</html>
+
+
+<!-- Edit the element
+i) textContent
+ii)outerHTML
+iii)innerHTML 
+
+Add elemwnt
+i) createTextNode
+ii)innerHTML-->

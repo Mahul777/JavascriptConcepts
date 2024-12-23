@@ -1,0 +1,42 @@
+<!-- it dynamically creates a div element, styles it, assigns it a random ID, and appends it to the body of the document, 
+ displaying the text "Chai aur code." -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chai aur code</title>
+  </head>
+  <body style="background-color: #212121; color: #fff">
+    <!-- Body of the document; background is dark and text is white -->
+  </body>
+  <script>
+    // Create a new div element
+    const div = document.createElement("div");
+    // Log the created div element to the console
+    console.log(div); //<div></div>
+
+    //Adding property in div
+
+    // Assign a class name to the div
+    div.className = "main";
+    // Set a random ID between 1 and 10 for the div
+    div.id = Math.round(Math.random() * 10 + 1); //5
+    // Set a title attribute for the div
+    div.setAttribute("title", "generated title");
+    // Set the background color of the div to green
+    div.style.backgroundColor = "green";
+    // Add padding of 12 pixels to the div
+    div.style.padding = "12px";
+
+    // Create a text node with the content "Chai aur code"
+    const addText = document.createTextNode("Chai aur code");
+    // Append the text node to the div
+    div.appendChild(addText);
+
+    // Append the div to the body of the document
+    document.body.appendChild(div);
+  </script>
+</html>

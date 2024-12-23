@@ -1,0 +1,22 @@
+<!-- ### **2. Removing Elements**
+
+You can remove elements from the DOM using the `remove()` method or by removing a child element using `removeChild()`. -->
+
+
+<!DOCTYPE html>
+<html>
+  <body>
+    <p id="removeThis">This paragraph will be removed.</p>
+    <button id="removeBtn">Remove Paragraph</button>
+
+    <script>
+      // Select the element to be removed
+      let paragraph = document.getElementById("removeThis");
+
+      // Remove the element when the button is clicked
+      document.getElementById("removeBtn").addEventListener("click", ()=> {
+        paragraph.remove();
+      });
+    </script>
+  </body>
+</html>
